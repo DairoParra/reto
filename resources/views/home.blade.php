@@ -4,6 +4,8 @@
 
 @section('content')
 
-    <h1 class="text-5xl text-center pt-24">Welcome to my applicaction</h1>
+    <h1 class="text-5xl text-center pt-24">Welcome to my App</h1>
+
+    <iframe class="mx-auto my-12 p-8 bg-white rounded-lg" width="760" height="515" src="https://www.youtube-nocookie.com/embed/2OjzdpunQcc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 @endsection
