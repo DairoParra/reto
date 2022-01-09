@@ -16,14 +16,27 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->middleware('auth');
+Route::get('/', function () {return view('home');})
+    ->middleware('auth');
 
-Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register.index');
-Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+Route::get('/register', [RegisterController::class, 'create'])
+    ->middleware('guest')->name('register.index');
 
-Route::get('/login', [SessionsController::class, 'create'])->middleware('guest')->name('login.index');
-Route::post('/login', [SessionsController::class, 'store'])->name('login.store');
-Route::get('/logout', [SessionsController::class, 'destroy'])->middleware('auth')->name('login.destroy');
-Route::get('/admin', [AdminController::class, 'index'])->middleware('auth.admin')->name('admin.index');
+Route::post('/register', [RegisterController::class, 'store'])
+    ->name('register.store');
+
+Route::get('/login', [SessionsController::class, 'create'])
+    ->middleware('guest')->name('login.index');
+
+Route::post('/login', [SessionsController::class, 'store'])
+    ->name('login.store');
+
+Route::get('/logout', [SessionsController::class, 'destroy'])
+    ->middleware('auth')->name('login.destroy');
+
+Route::get('/admin', [AdminController::class, 'index'])
+    ->middleware('auth.admin')->name('admin.index');
+
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth','verified')->name('verification.notice');

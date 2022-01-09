@@ -14,12 +14,10 @@ class DatabaseSeeder extends Seeder
      */
 
     public function run(){
-        $user = new User;
-        $user->name = 'Admin';
-        $user->email = 'admin@test.com';
-        $user->password = ('12345');
-        $user->role = ('admin');
 
-        $user->save();
+        $this->call(AdminSeeder::class);
+
+        User::factory(24)->create();
+
     }
 }
