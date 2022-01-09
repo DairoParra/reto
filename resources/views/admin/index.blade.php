@@ -4,8 +4,16 @@
 
 @section('content')
 
-    <h1 class="text-5xl text-center pt-24">Hello {{ auth()->user()->name }}</h1>
+    <h1 class="text-5xl text-center pt-24">Administration panel</h1>
 
-    <iframe class="mx-auto my-12 p-8 bg-gray-200 dark:bg-gray-800 rounded-lg" width=760" height="515" src="https://www.youtube-nocookie.com/embed/cvTipU9gN5g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <a href="{{ route('admin.create') }}">Create User</a>
+
+    <ul>
+        @foreach($users as $user)
+            <a href="{{ route('admin.show', $user->id) }}" class="hover:text-blue-700 text-blue-600 visited:text-purple-600">{{$user->name}}</a>
+        @endforeach
+    </ul>
+
+    {{$users->links()}}
 
 @endsection

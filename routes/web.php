@@ -37,6 +37,12 @@ Route::get('/logout', [SessionsController::class, 'destroy'])
 Route::get('/admin', [AdminController::class, 'index'])
     ->middleware('auth.admin')->name('admin.index');
 
+Route::get('/admin/{id}', [AdminController::class, 'show'])
+    ->middleware('auth.admin')->name('admin.show');
+
+Route::get('/admin/create', [AdminController::class, 'create'])
+    ->middleware('auth.admin')->name('admin.create');
+
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth','verified')->name('verification.notice');
