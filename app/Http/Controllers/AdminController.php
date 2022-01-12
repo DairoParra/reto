@@ -17,15 +17,29 @@ class AdminController extends Controller {
 
     public function create(){
 
-        return view('admin.create');
-
     }
 
-    public function show($id){
-
-        $user = User::find($id);
+    public function show(User $user){
 
         return view('admin.show', compact('user'));
+    }
+
+    public function edit(User $user){
+        return view('admin.edit', compact('user'));
+    }
+
+    public function update(Request $request,User $user){
+
+        $request->validate([
+           'name'=>'required',
+           'email'=>'required'
+        ]);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
+
+        return redirect()->route('admin.show', $user);
     }
 
 }

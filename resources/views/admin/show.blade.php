@@ -4,9 +4,11 @@
 
 @section('content')
 
-    <h1 class="text-5xl text-center pt-24">Modifying User {{ $user->name }}</h1>
+    <h1 class="text-5xl text-center pt-24">Show Client{{ $user->name }}</h1>
 
-    <table class="table-fixed text-center text-5xl border-2">
+    <a href="{{ route('admin.edit', $user) }}">Modify Client</a>
+
+    <table class="text-center text-5xl border-2">
         <thead>
         <tr>
             <th>Id</th>
