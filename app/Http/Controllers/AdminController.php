@@ -31,8 +31,8 @@ class AdminController extends Controller {
     public function update(Request $request,User $user){
 
         $request->validate([
-           'name'=>'required',
-           'email'=>'required'
+           'name'=>'required|max:100',
+           'email'=>'required|min:6'
         ]);
 
         $user->name = $request->name;
