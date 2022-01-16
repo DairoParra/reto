@@ -37,12 +37,15 @@ Route::get('/logout', [SessionsController::class, 'destroy'])
 Route::get('/admin', [AdminController::class, 'index'])
     ->middleware('auth.admin')->name('admin.index');
 
-Route::get('/admin/{id}', [AdminController::class, 'show'])
+Route::get('/admin/{user}', [AdminController::class, 'show'])
     ->middleware('auth.admin')->name('admin.show');
 
-Route::get('/admin/create', [AdminController::class, 'create'])
-    ->middleware('auth.admin')->name('admin.create');
+Route::get('admin/{user}/edit', [AdminController::class, 'edit'])
+    ->middleware('auth.admin')->name('admin.edit');
 
-Route::get('/email/verify', function () {
+Route::put('admin/{user}', [AdminController::class, 'update'])
+    ->middleware('auth.admin')->name('admin.update');
+
+/*Route::get('/email/verify', function () {
     return view('auth.verify-email');
-})->middleware('auth','verified')->name('verification.notice');
+})->middleware('auth','verified')->name('verification.notice');*/
