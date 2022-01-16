@@ -40,11 +40,9 @@
 
             <br><br>
             <button class="font-bold py-2 px-4 rounded-md bg-gray-200 hover:bg-blue-600" type="submit">Update data</button>
+            <a class="font-bold py-2 px-4 hover:text-blue-700 rounded-md bg-gray-200 hover:bg-red-600" href="{{ route('admin.index') }}">Back</a>
 
         </form>
-
-        <br><br><br>
-        <a class="font-bold py-2 px-4 rounded-md bg-gray-200 hover:bg-red-600" href="{{ route('admin.index') }}">Back</a>
     </div>
 
 

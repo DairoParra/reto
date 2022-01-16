@@ -11,12 +11,12 @@
         <form action="" method="POST" class="mt-4">
             @csrf
 
-            <input type="text" class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-900 p-2 my-2 focus:bg-white" placeholder="Name" id="name" name="name">
+            <input type="text" class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-900 p-2 my-2 focus:bg-white" placeholder="Name" id="name" name="name" value="{{old('name')}}">
             @error('name')
             <p class="border border-red-600 rounded-md bg-red-100 w-full text-red-600 p-2 my-2">* {{ $message }}</p>
             @enderror
 
-            <input type="email" class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-900 p-2 my-2 focus:bg-white" placeholder="Email" id="email" name="email">
+            <input type="email" class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-900 p-2 my-2 focus:bg-white" placeholder="Email" id="email" name="email" value="{{old('email')}}">
             @error('email')
             <p class="border border-red-600 rounded-md bg-red-100 w-full text-red-600 p-2 my-2">* {{ $message }}</p>
             @enderror

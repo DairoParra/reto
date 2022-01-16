@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateUser;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -28,12 +29,7 @@ class AdminController extends Controller {
         return view('admin.edit', compact('user'));
     }
 
-    public function update(Request $request,User $user){
-
-        $request->validate([
-           'name'=>'required|max:100',
-           'email'=>'required|min:6'
-        ]);
+    public function update(UpdateUser $request,User $user){
 
         $user->name = $request->name;
         $user->email = $request->email;
