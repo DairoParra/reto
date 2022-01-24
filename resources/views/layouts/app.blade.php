@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>@yield('title') - Reto</title>
+    <link rel="shortcut icon" href="shop.svg" fill type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 dark:text-gray-400 text-gray-800">

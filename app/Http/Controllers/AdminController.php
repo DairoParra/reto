@@ -29,7 +29,8 @@ class AdminController extends Controller {
         return view('admin.edit', compact('user'));
     }
 
-    public function update(UpdateUser $request,User $user){
+    public function update(UpdateUser $request, User $user)
+    {
 
         $user->name = $request->name;
         $user->email = $request->email;
